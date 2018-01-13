@@ -8,7 +8,7 @@ struct node{
 tupedef struct node* NODEPTR;
 
 NODEPTR insert(NODEPTR, int);
-void print(NODEPTR);
+void print_preorder(NODEPTR);
 int main()
 {
 	NODEPTR root= NULL;
@@ -25,7 +25,8 @@ int main()
 	
 return(0);
 }
-NODEPTR insert( NODEPTR root, int x){
+NODEPTR insert( NODEPTR root, int x)
+{
 	if(root== NULL)
 	{
 		NODEPTR temp=  NULL;
@@ -33,6 +34,7 @@ NODEPTR insert( NODEPTR root, int x){
 		temp->left= temp->right= NULL;
 		temp->data= x;
 		root=temp;
+	}
 	else if(x > (root->data))
 	{
 		insert(root->right, x);
@@ -42,6 +44,11 @@ NODEPTR insert( NODEPTR root, int x){
 		insert(root->left, x);
 	}
 }
-
+void print_preorder(NODEPTR root) {
+29 if (root) {
+30 printf("%d\n",root->data);
+31 print_preorder(root->left);
+32 print_preorder(root->right);
+33 }
 
 
